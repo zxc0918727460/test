@@ -54,14 +54,18 @@ class CheckMember extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        $check = Check::find($id);
-        if($check->check == true){
-            \Session::flash('flash_message', '已領票!! ');
+        $id = $request->id;
+        if($check = Check::find($id)){
+            if($check->check == true){
+                \Session::flash('flash_message', '已領票!! ');
 
+            }else{
+                \Session::flash('flash_message', '未領票!! ');
+            }
         }else{
-            \Session::flash('flash_message', '未領票!! ');
+            \Session::flash('flash_message', '無該會員!! ');
         }
         return view('check');
     }
@@ -84,12 +88,17 @@ class CheckMember extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
+        $id = $request->id;
         $update = Check::find($id);
-        $update->check = true;
-        $update->update();
-        \Session::flash('flash_message', '已更新會員購票資訊!! ');
+        if($update->check){
+            \Session::flash('flash_message', '此會員已購票!! ');
+        }else{
+            $update->check = true;
+            $update->update();
+            \Session::flash('flash_message', '已更新會員購票資訊!! ');
+        }
         return redirect('/update');
     }
 

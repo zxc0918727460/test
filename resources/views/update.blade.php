@@ -9,7 +9,7 @@
 				本次瀏覽此網站的IP為：<?php echo $_SERVER['REMOTE_ADDR'] ?>
 		</div>
 		<hr>
-        <form action="{{ url('/update/{id}') }}" method="POST" class="form-horizontal">
+        <form action="{{ url('/ticket/update') }}" method="POST" class="form-horizontal">
         {{ csrf_field() }}
             <table  width="250px"  border="1" cellspacing="0" >
                 <tr>
