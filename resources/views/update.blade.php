@@ -9,12 +9,13 @@
 				本次瀏覽此網站的IP為：<?php echo $_SERVER['REMOTE_ADDR'] ?>
 		</div>
 		<hr>
-        <form action="{{ url('/ticket/update') }}" method="POST" class="form-horizontal">
+        <form action="{{ url('/ticket/update') }}" method="post" class="form-horizontal">
         {{ csrf_field() }}
+        {{ method_field('PUT')}}
             <table  width="250px"  border="1" cellspacing="0" >
                 <tr>
                     <td>會員id</td>
-                    <td><input type='text'  name='id' required='required' id = 'member_id' ></td>
+                    <td><input type='text'  name='member_name' required='required' id = 'member_name' ></td>
                 </tr>
             </table>
             <div class="form-group">

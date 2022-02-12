@@ -14,7 +14,7 @@
 			<table  width="250px"  border="1" cellspacing="0" >
 				<tr>
 						<td>會員id</td>
-						<td><input type='text'  name='id' required='required' ></td>
+						<td><input type='text'  name='member_name' required='required' ></td>
 				</tr>	
 			</table>
 			<div class="form-group">

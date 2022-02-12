@@ -20,6 +20,6 @@ Route::get('/check','HomeController@check');
 
 Route::get('/ticket', 'CheckMember@index');
 Route::post('/ticket', 'CheckMember@store');
-Route::post('/ticket/update', 'CheckMember@update');
+Route::put('/ticket/update', 'CheckMember@update');
 Route::post('/ticket/check', 'CheckMember@show');
 Route::delete('/ticket/{id}', 'CheckMember@destroy');
