@@ -44,7 +44,7 @@ class CheckMember extends Controller
 			$check = new Check;
 			$check->name = $request->name;
 			$check->users_cellphone = $request->cellphone;
-			$check->check = false;
+			$check->ticket_check = false;
 	
 			$check->save();
 			\Session::flash('flash_message', '新增成功!! ');
@@ -96,10 +96,10 @@ class CheckMember extends Controller
 	{
 		$name = $request->member_name;
 		if(	$update = Check::where('name', $name)->first()){
-			if($update->check){
+			if($update->ticket_check){
 				\Session::flash('flash_message', '此會員已購票!! ');
 			}else{
-				$update->check = true;
+				$update->ticket_check = true;
 				$update->update();
 				\Session::flash('flash_message', '已更新會員購票資訊!! ');
 			}	
