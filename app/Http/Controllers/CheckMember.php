@@ -62,7 +62,7 @@ class CheckMember extends Controller
 	{
 		$name = $request->member_name;
 		if($xx = Check::where('name', $name)->first()){
-			if($xx->check == true){
+			if($xx->ticket_check == true){
 				\Session::flash('flash_message', '已領票!! ');
 
 			}else{
